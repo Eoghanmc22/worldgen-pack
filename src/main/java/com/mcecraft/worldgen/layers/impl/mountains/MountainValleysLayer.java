@@ -1,8 +1,8 @@
-package com.mcecraft.worldgen.layers.impl;
+package com.mcecraft.worldgen.layers.impl.mountains;
 
 import com.mcecraft.worldgen.biomes.impl.mountains.MountainGravelValleys;
 import com.mcecraft.worldgen.biomes.impl.mountains.MountainValleys;
-import com.mcecraft.worldgen.biomes.impl.mountains.Mountains;
+import com.mcecraft.worldgen.biomes.impl.mountains.MountainsSteep;
 import net.minestom.worldgen.ChunkRandom;
 import net.minestom.worldgen.layers.Layer;
 import net.minestom.worldgen.layers.MultiSamplingLayer;
@@ -20,7 +20,7 @@ public class MountainValleysLayer extends MultiSamplingLayer {
 	protected int genBiomes(int x, int z, int u, int d, int r, int l, int c, ChunkRandom rng) {
 		rng.initChunkSeed(x, z);
 		int climate = Layer.getClimate(c);
-		if (climate != Mountains.getInstance().getClimateId()) {
+		if (climate != MountainsSteep.getInstance().getClimateId()) {
 			return c;
 		}
 		if (Layer.getClimate(u) == climate && Layer.getClimate(d) == climate && Layer.getClimate(r) == climate && Layer.getClimate(l) == climate && rng.nextInt(chance) == 0) {

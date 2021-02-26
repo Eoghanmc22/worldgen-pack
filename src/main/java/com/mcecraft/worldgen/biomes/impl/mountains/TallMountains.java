@@ -8,7 +8,7 @@ import net.minestom.server.utils.NamespaceID;
 import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.WorldGen;
 
-public class TallMountains extends NormalBiome {
+public class TallMountains extends MountainBiome {
 
 	private static TallMountains INSTANCE;
 
@@ -20,7 +20,7 @@ public class TallMountains extends NormalBiome {
 		INSTANCE = this;
 	}
 
-	public static final JNoise base = JNoise.newBuilder().superSimplex().setFrequency(1.0/1024).setSeed(789236).build();
+	public static final JNoise base = JNoise.newBuilder().superSimplex().setFrequency(1.0/2048).setSeed(789236).build();
 
 	public static final JNoise noise1 = JNoise.newBuilder().octavated().setNoise(base).setLacunarity(3).setPersistence(0.5).setOctaves(6).build();
 
@@ -30,7 +30,7 @@ public class TallMountains extends NormalBiome {
 
 	@Override
 	public int getHeight(int x, int z, int biomeId) {
-		return (int) (100+Math.abs(getPlateNoise(x,z, 3)) + Math.abs(noise1.getNoise(x, z)*150));
+		return (int) (100+Math.abs(getPlateNoise(x,z, 3)) + Math.abs(noise1.getNoise(x, z)*100));
 	}
 
 }

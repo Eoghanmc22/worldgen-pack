@@ -8,7 +8,7 @@ import net.minestom.server.utils.NamespaceID;
 import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.WorldGen;
 
-public class MountainValleys extends NormalBiome {
+public class MountainValleys extends MountainBiome {
 
 	private static MountainValleys INSTANCE;
 

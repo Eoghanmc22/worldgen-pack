@@ -7,6 +7,7 @@ import com.mcecraft.worldgen.biomes.impl.mountains.*;
 import com.mcecraft.worldgen.biomes.impl.ocean.Ocean;
 import com.mcecraft.worldgen.biomes.impl.temperate.*;
 import com.mcecraft.worldgen.layers.impl.*;
+import com.mcecraft.worldgen.layers.impl.mountains.*;
 import net.minestom.worldgen.WorldGen;
 import net.minestom.worldgen.WorldGenConfig;
 import net.minestom.worldgen.biomes.BiomeGroup;
@@ -35,6 +36,9 @@ public class GenConfig implements WorldGenConfig {
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new MountainsEdgeLayer(i++));
+		wg.addLayer(new MountainsOuterLayer(i++));
+		wg.addLayer(new MountainsInnerLayer(i++));
+		wg.addLayer(new MountainsTallLayer(i++));
 		wg.addLayer(new ShelfLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new BeachLayer(i++));
@@ -66,8 +70,6 @@ public class GenConfig implements WorldGenConfig {
 
 		group = new BiomeGroup();
 		group.addBiome(new Mountains(wg));
-		group.addBiome(new TallMountains(wg));
-		group.addBiome(new SmallMountains(wg));
 		wg.addBiomeGroup(group);
 
 		wg.addReservedBiome(new Beach(wg));
@@ -75,6 +77,9 @@ public class GenConfig implements WorldGenConfig {
 		wg.addReservedBiome(new MountainValleys(wg));
 		wg.addReservedBiome(new MountainGravelValleys(wg));
 		wg.addReservedBiome(new MountainsEdge(wg));
+		wg.addReservedBiome(new TallMountains(wg));
+		wg.addReservedBiome(new SmallMountains(wg));
+		wg.addReservedBiome(new MountainsSteep(wg));
 	}
 
 }

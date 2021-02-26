@@ -8,7 +8,7 @@ import net.minestom.server.utils.NamespaceID;
 import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.WorldGen;
 
-public class SmallMountains extends NormalBiome {
+public class SmallMountains extends MountainBiome {
 
 	private static SmallMountains INSTANCE;
 
@@ -30,7 +30,7 @@ public class SmallMountains extends NormalBiome {
 
 	@Override
 	public int getHeight(int x, int z, int biomeId) {
-		return (int) (90+Math.abs(getPlateNoise(x,z, 3)) + Math.abs(noise1.getNoise(x, z)*100));
+		return (int) (85+Math.abs(getPlateNoise(x,z, 3)) + Math.abs(noise1.getNoise(x, z)*20));
 	}
 
 }
