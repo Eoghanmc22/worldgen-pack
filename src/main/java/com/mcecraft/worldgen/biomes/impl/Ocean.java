@@ -15,7 +15,7 @@ public class Ocean extends NormalBiome {
 	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:desert")).build();
 
 	public Ocean(WorldGen wg) {
-		super(wg, BIOME, Plate.OCEAN, Block.AIR.getBlockId(), Block.GRAVEL.getBlockId(), 3);
+		super(wg, BIOME, Plate.OCEAN, (short) -1, Block.AIR.getBlockId(), Block.GRAVEL.getBlockId(), 3);
 		INSTANCE = this;
 	}
 

@@ -1,17 +1,14 @@
 package com.mcecraft.worldgen.biomes;
 
-import com.mcecraft.worldgen.columnFeatures.ColumnFeature;
 import com.mcecraft.worldgen.columnFeatures.ColumnFeatureContainer;
 import com.mcecraft.worldgen.plates.Plate;
 import net.minestom.server.instance.batch.ChunkBatch;
 import net.minestom.server.instance.block.Block;
-import net.minestom.server.utils.BlockPosition;
 import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.ChunkRandom;
 import net.minestom.worldgen.WorldGen;
 import net.minestom.worldgen.biomes.BiomeConfig;
 import net.minestom.worldgen.features.PlaceableFeature;
-import net.minestom.worldgenUtils.Batch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,14 +19,17 @@ public abstract class NormalBiome extends BiomeConfig {
 
 	private final WorldGen wg;
 	private final Plate plate;
+	private boolean iceLakes = false;
+	private final short overlayBlock;
 	private final short surfaceBlock;
 	private final short topBlock;
 	private final int topLayers;
 
-	public NormalBiome(WorldGen wg, Biome minestomBiome, Plate plate, short surfaceBlock, short topBlock, int topLayers, PlaceableFeature... features) {
+	public NormalBiome(WorldGen wg, Biome minestomBiome, Plate plate, short overlayBlock, short surfaceBlock, short topBlock, int topLayers, PlaceableFeature... features) {
 		super(minestomBiome, 1, features);
 		this.wg = wg;
 		this.plate = plate;
+		this.overlayBlock = overlayBlock;
 		this.surfaceBlock = surfaceBlock;
 		this.topBlock = topBlock;
 		this.topLayers = topLayers;
@@ -60,12 +60,22 @@ public abstract class NormalBiome extends BiomeConfig {
 			for (int y = height+1; y < 64; y++) {
 				batch.setBlock(x,y,z, Block.WATER);
 			}
+			if (iceLakes) {
+				batch.setBlock(x,63,z, Block.ICE);
+			}
 		} else {
 			batch.setBlockStateId(x,height,z, surfaceBlock);
+			if (overlayBlock != -1) {
+				batch.setBlockStateId(x, height+1, z, overlayBlock);
+			}
 		}
 		for (final ColumnFeatureContainer feature : columnFeatures){
 			feature.run(wg, biomeId, rng, x, height + 1, z, chunkX, chunkZ);
 		}
+	}
+
+	public void setIceLakes(boolean iceLakes) {
+		this.iceLakes = iceLakes;
 	}
 
 }

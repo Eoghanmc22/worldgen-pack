@@ -55,6 +55,10 @@ public class GenConfig implements WorldGenConfig {
 		group.addBiome(new Ocean(wg));
 		wg.addBiomeGroup(group);
 
+		group = new BiomeGroup();
+		group.addBiome(new SnowyTundra(wg));
+		wg.addBiomeGroup(group);
+
 		wg.addReservedBiome(new Beach(wg));
 		wg.addReservedBiome(new ShelfBiome(wg));
 	}

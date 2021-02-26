@@ -16,7 +16,7 @@ public class Desert extends NormalBiome {
 	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:desert")).build();
 
 	public Desert(WorldGen wg) {
-		super(wg, BIOME, Plate.DRY, Block.SAND.getBlockId(), Block.SANDSTONE.getBlockId(), 3);
+		super(wg, BIOME, Plate.DRY, (short) -1, Block.SAND.getBlockId(), Block.SANDSTONE.getBlockId(), 3);
 		addColumnFeatures(new ColumnFeatureContainer(0.01, new DesertFeatures()));
 		INSTANCE = this;
 	}

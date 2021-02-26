@@ -18,7 +18,7 @@ public class OakForest extends NormalBiome {
 	private static final TreeFeature tree = new TreeFeature(0, Block.OAK_LEAVES, Block.OAK_LOG);
 
 	public OakForest(WorldGen wg) {
-		super(wg, BIOME, Plate.TEMPERATE, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, tree);
+		super(wg, BIOME, Plate.TEMPERATE, (short) -1, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, tree);
 		addColumnFeatures(new ColumnFeatureContainer(0.05f, new TreeAdapter(tree)));
 		INSTANCE = this;
 	}

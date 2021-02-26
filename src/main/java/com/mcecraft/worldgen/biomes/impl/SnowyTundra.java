@@ -14,15 +14,16 @@ import net.minestom.worldgen.WorldGen;
 import net.minestom.worldgen.features.impl.TreeFeature;
 import net.minestom.worldgen.layers.Layer;
 
-public class Plains extends NormalBiome {
+public class SnowyTundra extends NormalBiome {
 
-	private static Plains INSTANCE;
+	private static SnowyTundra INSTANCE;
 
-	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:plains")).build();
+	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:snowy_tundra")).build();
 	private static final TreeFeature tree = new TreeFeature(0, Block.OAK_LEAVES, Block.OAK_LOG);
 
-	public Plains(WorldGen wg) {
-		super(wg, BIOME, Plate.TEMPERATE, (short) -1, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, tree);
+	public SnowyTundra(WorldGen wg) {
+		super(wg, BIOME, Plate.COLD, Block.SNOW.getBlockId(), Block.GRASS_BLOCK.withProperties("snowy=true"), Block.DIRT.getBlockId(), 3, tree);
+		setIceLakes(true);
 		addColumnFeatures(new ColumnFeatureContainer(0.0003f, new TreeAdapter(tree)), new ColumnFeatureContainer(0.03, new GrassFeature()), new ColumnFeatureContainer(1, new FlowerFeature(345634, Block.DANDELION)), new ColumnFeatureContainer(1, new FlowerFeature(78421, Block.POPPY)));
 		INSTANCE = this;
 	}
@@ -31,7 +32,7 @@ public class Plains extends NormalBiome {
 
 	public static final JNoise noise1 = JNoise.newBuilder().octavated().setNoise(base).setLacunarity(2).setPersistence(0.5).setOctaves(4).build();
 
-	public static Plains getInstance() {
+	public static SnowyTundra getInstance() {
 		return INSTANCE;
 	}
 

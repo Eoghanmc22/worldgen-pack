@@ -12,7 +12,7 @@ public class GrassFeature implements ColumnFeature {
 
 	@Override
 	public void generate(WorldGen wg, int biomeId, ChunkRandom rng, int x, int y, int z, int chunkX, int chunkZ) {
-		if (Layer.isLand(biomeId)) {
+		if (Layer.isLand(biomeId) && y > 64 ) {
 			Batch batch = new Batch(new BlockPosition(x + chunkX * 16, y, z + chunkZ * 16));
 			if (rng.nextInt(2) == 0) {
 				batch.setBlock(0, 0, 0, Block.GRASS);
