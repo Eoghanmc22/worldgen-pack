@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+group 'com.mcecraft'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://repo.spongepowered.org/maven' }
+    maven { url 'https://libraries.minecraft.net' }
+    maven { url 'https://jitpack.io' }
+    maven {
+        name = "Articdive's nexus repository"
+        url = uri("https://repo.minestom.com/repository/maven-public/")
+    }
+}
+
+dependencies {
+    implementation 'com.github.Minestom:Minestom:8a992b3e45'
+    //implementation 'net.minestom.server:Minestom:1.0'
+    implementation 'net.minestom:treegen:1.0-SNAPSHOT'
+    implementation 'net.minestom:lib-worldgen:1.0-SNAPSHOT'
+    implementation 'net.minestom:worldgen-commons:1.0-SNAPSHOT'
+    implementation 'de.articdive:jnoise:2.0.0'
+}
