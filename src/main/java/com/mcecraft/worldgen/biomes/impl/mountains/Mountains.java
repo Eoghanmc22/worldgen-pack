@@ -20,7 +20,7 @@ public class Mountains extends NormalBiome {
 		INSTANCE = this;
 	}
 
-	public static final JNoise base = JNoise.newBuilder().superSimplex().setFrequency(1.0/512).setSeed(789236).build();
+	public static final JNoise base = JNoise.newBuilder().superSimplex().setFrequency(1.0/1024).setSeed(789236).build();
 
 	public static final JNoise noise1 = JNoise.newBuilder().octavated().setNoise(base).setLacunarity(3).setPersistence(0.7).setOctaves(6).build();
 

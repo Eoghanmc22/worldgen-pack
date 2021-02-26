@@ -48,7 +48,7 @@ public class Minestom {
 		minecraftServer.start("localhost", 25566);
 
 		System.out.println(System.currentTimeMillis());
-		int width = 10;
+		int width = 150;
 		CountDownLatch latch = new CountDownLatch(width*width*4);
 		for (int x = -width; x < width; x++) {
 			for (int y = -width; y < width; y++) {

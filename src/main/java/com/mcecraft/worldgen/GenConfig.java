@@ -35,9 +35,9 @@ public class GenConfig implements WorldGenConfig {
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new MountainsEdgeLayer(i++));
+		wg.addLayer(new ShelfLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new BeachLayer(i++));
-		wg.addLayer(new ShelfLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
@@ -66,7 +66,7 @@ public class GenConfig implements WorldGenConfig {
 
 		group = new BiomeGroup();
 		group.addBiome(new Mountains(wg));
-		group.addBiome(new TallSmoothMountains(wg));
+		group.addBiome(new TallMountains(wg));
 		group.addBiome(new SmallMountains(wg));
 		wg.addBiomeGroup(group);
 

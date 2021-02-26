@@ -8,13 +8,13 @@ import net.minestom.server.utils.NamespaceID;
 import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.WorldGen;
 
-public class TallSmoothMountains extends NormalBiome {
+public class TallMountains extends NormalBiome {
 
-	private static TallSmoothMountains INSTANCE;
+	private static TallMountains INSTANCE;
 
-	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:tall_smooth_mountains")).build();
+	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:tall_mountains")).build();
 
-	public TallSmoothMountains(WorldGen wg) {
+	public TallMountains(WorldGen wg) {
 		super(wg, BIOME, Plate.MOUNTAINS, Block.SNOW.getBlockId(), 110, Block.STONE.getBlockId(), Block.STONE.getBlockId(), 3);
 		addColumnFeatures();
 		INSTANCE = this;
@@ -24,7 +24,7 @@ public class TallSmoothMountains extends NormalBiome {
 
 	public static final JNoise noise1 = JNoise.newBuilder().octavated().setNoise(base).setLacunarity(3).setPersistence(0.5).setOctaves(6).build();
 
-	public static TallSmoothMountains getInstance() {
+	public static TallMountains getInstance() {
 		return INSTANCE;
 	}
 

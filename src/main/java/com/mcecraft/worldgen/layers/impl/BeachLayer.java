@@ -1,6 +1,7 @@
 package com.mcecraft.worldgen.layers.impl;
 
 import com.mcecraft.worldgen.biomes.impl.Beach;
+import com.mcecraft.worldgen.biomes.impl.ShelfBiome;
 import com.mcecraft.worldgen.biomes.impl.ocean.Ocean;
 import net.minestom.worldgen.ChunkRandom;
 import net.minestom.worldgen.layers.Layer;
@@ -15,9 +16,16 @@ public class BeachLayer extends MultiSamplingLayer {
 	@Override
 	protected int genBiomes(int x, int z, int u, int d, int r, int l, int c, ChunkRandom rng) {
 		rng.initChunkSeed(x, z);
-		int oceanClimate = Ocean.getInstance().getClimateId();
-		if (Layer.getClimate(u) == oceanClimate || Layer.getClimate(d) == oceanClimate || Layer.getClimate(r) == oceanClimate || Layer.getClimate(l) == oceanClimate) {
-			if (Layer.getClimate(u) == oceanClimate && Layer.getClimate(d) == oceanClimate && Layer.getClimate(r) == oceanClimate && Layer.getClimate(l) == oceanClimate) {
+		int shelfClimate = ShelfBiome.getInstance().getClimateId();
+		int shelfBiome = ShelfBiome.getInstance().getBiomeId();
+		if (Layer.cmpBiomeClimate(c, shelfClimate, shelfBiome)) {
+			return c;
+		}
+		if (Layer.cmpBiomeClimate(u, shelfClimate, shelfBiome) || Layer.cmpBiomeClimate(d, shelfClimate, shelfBiome) || Layer.cmpBiomeClimate(l, shelfClimate, shelfBiome) || Layer.cmpBiomeClimate(r, shelfClimate, shelfBiome)) {
+			if (Layer.cmpBiomeClimate(u, shelfClimate, shelfBiome) && Layer.cmpBiomeClimate(d, shelfClimate, shelfBiome) && Layer.cmpBiomeClimate(l, shelfClimate, shelfBiome) && Layer.cmpBiomeClimate(r, shelfClimate, shelfBiome)) {
+				return c;
+			}
+			if (Layer.getClimate(c) == Ocean.getInstance().getClimateId()) {
 				return c;
 			}
 			return Layer.setIsLand(0, true) | Layer.setClimate(0, Beach.getInstance().getClimateId()) | Layer.setBiomeId(0, Beach.getInstance().getBiomeId());
