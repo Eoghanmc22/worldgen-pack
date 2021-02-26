@@ -1,4 +1,4 @@
-package com.mcecraft.worldgen.biomes.impl;
+package com.mcecraft.worldgen.biomes.impl.cold;
 
 import com.mcecraft.worldgen.biomes.NormalBiome;
 import com.mcecraft.worldgen.columnFeatures.ColumnFeatureContainer;
@@ -22,7 +22,7 @@ public class SnowyTundra extends NormalBiome {
 	private static final TreeFeature tree = new TreeFeature(0, Block.OAK_LEAVES, Block.OAK_LOG);
 
 	public SnowyTundra(WorldGen wg) {
-		super(wg, BIOME, Plate.COLD, Block.SNOW.getBlockId(), Block.GRASS_BLOCK.withProperties("snowy=true"), Block.DIRT.getBlockId(), 3, tree);
+		super(wg, BIOME, Plate.COLD, Block.SNOW.getBlockId(), 0, Block.GRASS_BLOCK.withProperties("snowy=true"), Block.DIRT.getBlockId(), 3, tree);
 		setIceLakes(true);
 		addColumnFeatures(new ColumnFeatureContainer(0.0003f, new TreeAdapter(tree)), new ColumnFeatureContainer(0.03, new GrassFeature()), new ColumnFeatureContainer(1, new FlowerFeature(345634, Block.DANDELION)), new ColumnFeatureContainer(1, new FlowerFeature(78421, Block.POPPY)));
 		INSTANCE = this;

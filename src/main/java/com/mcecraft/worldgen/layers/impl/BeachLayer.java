@@ -1,8 +1,7 @@
 package com.mcecraft.worldgen.layers.impl;
 
 import com.mcecraft.worldgen.biomes.impl.Beach;
-import com.mcecraft.worldgen.biomes.impl.ShelfBiome;
-import com.mcecraft.worldgen.biomes.impl.Ocean;
+import com.mcecraft.worldgen.biomes.impl.ocean.Ocean;
 import net.minestom.worldgen.ChunkRandom;
 import net.minestom.worldgen.layers.Layer;
 import net.minestom.worldgen.layers.MultiSamplingLayer;

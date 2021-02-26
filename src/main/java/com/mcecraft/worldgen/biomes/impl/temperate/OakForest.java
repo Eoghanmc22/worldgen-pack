@@ -1,4 +1,4 @@
-package com.mcecraft.worldgen.biomes.impl;
+package com.mcecraft.worldgen.biomes.impl.temperate;
 
 import com.mcecraft.worldgen.biomes.NormalBiome;
 import com.mcecraft.worldgen.columnFeatures.ColumnFeatureContainer;
@@ -10,20 +10,20 @@ import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.WorldGen;
 import net.minestom.worldgen.features.impl.TreeFeature;
 
-public class BirchForest extends NormalBiome {
+public class OakForest extends NormalBiome {
 
-	private static BirchForest INSTANCE;
+	private static OakForest INSTANCE;
 
-	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:birch_forest")).build();
-	private static final TreeFeature treeFeature = new TreeFeature(0, Block.BIRCH_LEAVES, Block.BIRCH_LOG);
+	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:oak_forest")).build();
+	private static final TreeFeature tree = new TreeFeature(0, Block.OAK_LEAVES, Block.OAK_LOG);
 
-	public BirchForest(WorldGen wg) {
-		super(wg, BIOME, Plate.TEMPERATE, (short) -1, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, treeFeature);
-		addColumnFeatures(new ColumnFeatureContainer(0.05f, new TreeAdapter(treeFeature)));
+	public OakForest(WorldGen wg) {
+		super(wg, BIOME, Plate.TEMPERATE, (short) -1, 0, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, tree);
+		addColumnFeatures(new ColumnFeatureContainer(0.05f, new TreeAdapter(tree)));
 		INSTANCE = this;
 	}
 
-	public static BirchForest getInstance() {
+	public static OakForest getInstance() {
 		return INSTANCE;
 	}
 

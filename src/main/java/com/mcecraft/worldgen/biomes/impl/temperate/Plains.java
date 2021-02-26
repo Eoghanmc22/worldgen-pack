@@ -1,4 +1,4 @@
-package com.mcecraft.worldgen.biomes.impl;
+package com.mcecraft.worldgen.biomes.impl.temperate;
 
 import com.mcecraft.worldgen.biomes.NormalBiome;
 import com.mcecraft.worldgen.columnFeatures.ColumnFeatureContainer;
@@ -22,7 +22,7 @@ public class Plains extends NormalBiome {
 	private static final TreeFeature tree = new TreeFeature(0, Block.OAK_LEAVES, Block.OAK_LOG);
 
 	public Plains(WorldGen wg) {
-		super(wg, BIOME, Plate.TEMPERATE, (short) -1, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, tree);
+		super(wg, BIOME, Plate.TEMPERATE, (short) -1, 0, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, tree);
 		addColumnFeatures(new ColumnFeatureContainer(0.0003f, new TreeAdapter(tree)), new ColumnFeatureContainer(0.03, new GrassFeature()), new ColumnFeatureContainer(1, new FlowerFeature(345634, Block.DANDELION)), new ColumnFeatureContainer(1, new FlowerFeature(78421, Block.POPPY)));
 		INSTANCE = this;
 	}

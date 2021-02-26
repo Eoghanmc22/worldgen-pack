@@ -1,50 +1,28 @@
 package com.mcecraft.worldgen.biomes;
 
-import com.mcecraft.worldgen.columnFeatures.ColumnFeatureContainer;
 import com.mcecraft.worldgen.plates.Plate;
 import net.minestom.server.instance.batch.ChunkBatch;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.ChunkRandom;
 import net.minestom.worldgen.WorldGen;
-import net.minestom.worldgen.biomes.BiomeConfig;
 import net.minestom.worldgen.features.PlaceableFeature;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public abstract class NormalBiome extends BiomeConfig {
-
-	private final ArrayList<ColumnFeatureContainer> columnFeatures = new ArrayList<>();
-
-	private final WorldGen wg;
-	private final Plate plate;
+public abstract class NormalBiome extends BaseBiome {
 	private boolean iceLakes = false;
 	private final short overlayBlock;
+	private final int overlayElevation;
 	private final short surfaceBlock;
 	private final short topBlock;
 	private final int topLayers;
 
-	public NormalBiome(WorldGen wg, Biome minestomBiome, Plate plate, short overlayBlock, short surfaceBlock, short topBlock, int topLayers, PlaceableFeature... features) {
-		super(minestomBiome, 1, features);
-		this.wg = wg;
-		this.plate = plate;
+	public NormalBiome(WorldGen wg, Biome minestomBiome, Plate plate, short overlayBlock, int overlayElevation, short surfaceBlock, short topBlock, int topLayers, PlaceableFeature... features) {
+		super(minestomBiome, 1, wg, plate, features);
 		this.overlayBlock = overlayBlock;
+		this.overlayElevation = overlayElevation;
 		this.surfaceBlock = surfaceBlock;
 		this.topBlock = topBlock;
 		this.topLayers = topLayers;
-	}
-
-	public void addColumnFeatures(ColumnFeatureContainer... features) {
-		columnFeatures.addAll(Arrays.asList(features));
-	}
-
-	public Plate getPlate() {
-		return plate;
-	}
-
-	public double getPlateNoise(double x, double z, double amplitude) {
-		return plate.getNoise().getNoise(x, z) * amplitude;
 	}
 
 	@Override
@@ -65,13 +43,11 @@ public abstract class NormalBiome extends BiomeConfig {
 			}
 		} else {
 			batch.setBlockStateId(x,height,z, surfaceBlock);
-			if (overlayBlock != -1) {
+			if (overlayBlock != -1 && height+1 >= overlayElevation) {
 				batch.setBlockStateId(x, height+1, z, overlayBlock);
 			}
 		}
-		for (final ColumnFeatureContainer feature : columnFeatures){
-			feature.run(wg, biomeId, rng, x, height + 1, z, chunkX, chunkZ);
-		}
+		super.generate(batch, x, z, height, chunkX, chunkZ, biomeId, rng);
 	}
 
 	public void setIceLakes(boolean iceLakes) {

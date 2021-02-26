@@ -15,7 +15,7 @@ public class Beach extends NormalBiome {
 	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:beach")).build();
 
 	public Beach(WorldGen wg) {
-		super(wg, BIOME, Plate.OCEAN, (short) -1, Block.SAND.getBlockId(), Block.SAND.getBlockId(), 4);
+		super(wg, BIOME, Plate.OCEAN, (short) -1, 0, Block.SAND.getBlockId(), Block.SAND.getBlockId(), 4);
 		INSTANCE = this;
 	}
 

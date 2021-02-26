@@ -1,4 +1,4 @@
-package com.mcecraft.worldgen.biomes.impl;
+package com.mcecraft.worldgen.biomes.impl.ocean;
 
 import com.mcecraft.worldgen.biomes.NormalBiome;
 import com.mcecraft.worldgen.plates.Plate;
@@ -15,7 +15,7 @@ public class Ocean extends NormalBiome {
 	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:desert")).build();
 
 	public Ocean(WorldGen wg) {
-		super(wg, BIOME, Plate.OCEAN, (short) -1, Block.AIR.getBlockId(), Block.GRAVEL.getBlockId(), 3);
+		super(wg, BIOME, Plate.OCEAN, (short) -1, 0, Block.AIR.getBlockId(), Block.GRAVEL.getBlockId(), 3);
 		INSTANCE = this;
 	}
 

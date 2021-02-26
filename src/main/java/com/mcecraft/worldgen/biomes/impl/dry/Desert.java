@@ -1,4 +1,4 @@
-package com.mcecraft.worldgen.biomes.impl;
+package com.mcecraft.worldgen.biomes.impl.dry;
 
 import com.mcecraft.worldgen.biomes.NormalBiome;
 import com.mcecraft.worldgen.columnFeatures.ColumnFeatureContainer;
@@ -16,7 +16,7 @@ public class Desert extends NormalBiome {
 	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:desert")).build();
 
 	public Desert(WorldGen wg) {
-		super(wg, BIOME, Plate.DRY, (short) -1, Block.SAND.getBlockId(), Block.SANDSTONE.getBlockId(), 3);
+		super(wg, BIOME, Plate.DRY, (short) -1, 0, Block.SAND.getBlockId(), Block.SANDSTONE.getBlockId(), 3);
 		addColumnFeatures(new ColumnFeatureContainer(0.01, new DesertFeatures()));
 		INSTANCE = this;
 	}

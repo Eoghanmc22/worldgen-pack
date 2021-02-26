@@ -1,4 +1,4 @@
-package com.mcecraft.worldgen.biomes.impl;
+package com.mcecraft.worldgen.biomes.impl.temperate;
 
 import com.mcecraft.worldgen.biomes.NormalBiome;
 import com.mcecraft.worldgen.columnFeatures.ColumnFeatureContainer;
@@ -21,7 +21,7 @@ public class Forest extends NormalBiome {
 	private static final TreeFeature oTree = new TreeFeature(0, Block.OAK_LEAVES, Block.OAK_LOG);
 
 	public Forest(WorldGen wg) {
-		super(wg, BIOME, Plate.TEMPERATE, (short) -1, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, bTree, oTree);
+		super(wg, BIOME, Plate.TEMPERATE, (short) -1, 0, Block.GRASS_BLOCK.getBlockId(), Block.DIRT.getBlockId(), 3, bTree, oTree);
 		addColumnFeatures(new ColumnFeatureContainer(0.02f, new TreeAdapter(bTree)), new ColumnFeatureContainer(0.03f, new TreeAdapter(oTree)));
 		INSTANCE = this;
 	}

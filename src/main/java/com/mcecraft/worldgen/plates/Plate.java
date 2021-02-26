@@ -3,7 +3,7 @@ package com.mcecraft.worldgen.plates;
 import de.articdive.jnoise.JNoise;
 
 public enum Plate {
-	COLD(0), TEMPERATE(1), LUSH(2), DRY(3), OCEAN(4);
+	COLD(0), MOUNTAINS(1), TEMPERATE(2), LUSH(3), DRY(4), OCEAN(5);
 
 	private final JNoise noise;
 
