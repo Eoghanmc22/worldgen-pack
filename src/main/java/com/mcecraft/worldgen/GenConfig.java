@@ -28,21 +28,29 @@ public class GenConfig implements WorldGenConfig {
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new SmoothLayer(i++));
 		wg.addLayer(new BiomeLayer(i++));
-		wg.addLayer(new MountainValleysLayer(i++, 5));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new ZoomLayer(i++));
-		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new MountainsEdgeLayer(i++));
-		wg.addLayer(new MountainsOuterLayer(i++));
-		wg.addLayer(new MountainsInnerLayer(i++));
-		wg.addLayer(new MountainsTallLayer(i++));
-		wg.addLayer(new MountainsVeryTallLayer(i++, 6));
+		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new ZoomLayer(i++));
+		wg.addLayer(new DynamicMountainsLayer(i++, 100));
+		wg.addLayer(new DynamicMountainsLayer(i++, 102));
+		wg.addLayer(new DynamicMountainsLayer(i++, 105));
+		wg.addLayer(new DynamicMountainsLayer(i++, 109));
+		wg.addLayer(new DynamicMountainsLayer(i++, 114));
+		wg.addLayer(new DynamicMountainsLayer(i++, 120));
+		wg.addLayer(new DynamicMountainsLayer(i++, 130));
+		wg.addLayer(new DynamicMountainsLayer(i++, 140));
+		wg.addLayer(new DynamicMountainsLayer(i++, 150));
+		wg.addLayer(new DynamicMountainsLayer(i++, 170));
+		wg.addLayer(new DynamicMountainsLayer(i++, 190));
+		wg.addLayer(new DynamicMountainsLayer(i++, 210));
+		wg.addLayer(new DynamicMountainsLayer(i++, 220));
+		wg.addLayer(new DynamicMountainsFinisherLayer(i++, 220));
 		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new ShelfLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
-		wg.addLayer(new MountainsPeakLayer(i++, 4));
 		wg.addLayer(new BeachLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
@@ -79,11 +87,7 @@ public class GenConfig implements WorldGenConfig {
 		wg.addReservedBiome(new MountainValleys(wg));
 		wg.addReservedBiome(new MountainGravelValleys(wg));
 		wg.addReservedBiome(new MountainsEdge(wg));
-		wg.addReservedBiome(new TallMountains(wg));
-		wg.addReservedBiome(new OuterMountains(wg));
-		wg.addReservedBiome(new MountainsSteep(wg));
-		wg.addReservedBiome(new PeakMountains(wg));
-		wg.addReservedBiome(new VeryTallMountains(wg));
+		wg.addReservedBiome(new DynamicMountains(wg));
 	}
 
 }

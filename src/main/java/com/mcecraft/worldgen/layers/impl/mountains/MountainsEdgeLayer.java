@@ -1,7 +1,6 @@
 package com.mcecraft.worldgen.layers.impl.mountains;
 
 import com.mcecraft.worldgen.biomes.impl.mountains.Mountains;
-import com.mcecraft.worldgen.biomes.impl.mountains.MountainsSteep;
 import com.mcecraft.worldgen.biomes.impl.mountains.MountainsEdge;
 import net.minestom.worldgen.ChunkRandom;
 import net.minestom.worldgen.layers.Layer;

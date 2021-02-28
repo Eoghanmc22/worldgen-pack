@@ -5,6 +5,7 @@ import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.GameMode;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.GlobalEventHandler;
+import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerLoginEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
 import net.minestom.server.instance.InstanceContainer;
@@ -35,20 +36,25 @@ public class Minestom {
 		GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 		globalEventHandler.addEventCallback(PlayerLoginEvent.class, event -> {
 			final Player player = event.getPlayer();
+			System.out.println(player.getUsername() + " joined the game");
 			event.setSpawningInstance(instanceContainer);
 			player.setRespawnPoint(new Position(0, 42, 0));
+		});
+
+		globalEventHandler.addEventCallback(PlayerDisconnectEvent.class, event -> {
+			System.out.println(event.getPlayer().getUsername() + " left the game");
 		});
 		globalEventHandler.addEventCallback(PlayerSpawnEvent.class, event -> {
 			event.getPlayer().setGameMode(GameMode.SPECTATOR);
 		});
 
-		MinecraftServer.setChunkViewDistance(15);
+		MinecraftServer.setChunkViewDistance(20);
 
 		// Start the server on port 25565
 		minecraftServer.start("localhost", 25566);
 
 		System.out.println(System.currentTimeMillis());
-		int width = 10;
+		int width = 20;
 		CountDownLatch latch = new CountDownLatch(width*width*4);
 		for (int x = -width; x < width; x++) {
 			for (int y = -width; y < width; y++) {

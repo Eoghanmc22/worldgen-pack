@@ -1,6 +1,5 @@
 package com.mcecraft.worldgen.biomes.impl.mountains;
 
-import com.mcecraft.worldgen.biomes.NormalBiome;
 import com.mcecraft.worldgen.plates.Plate;
 import de.articdive.jnoise.JNoise;
 import net.minestom.server.instance.block.Block;

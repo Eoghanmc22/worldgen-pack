@@ -6,14 +6,15 @@ import de.articdive.jnoise.JNoise;
 import net.minestom.server.utils.NamespaceID;
 import net.minestom.server.world.biomes.Biome;
 import net.minestom.worldgen.WorldGen;
+import net.minestom.worldgen.layers.Layer;
 
-public class MountainsEdge extends SurfacedBiome {
+public class DynamicMountains extends SurfacedBiome {
 
-	private static MountainsEdge INSTANCE;
+	private static DynamicMountains INSTANCE;
 
 	private static final Biome BIOME = Biome.builder().name(NamespaceID.from("wgp:mountains")).build();
 
-	public MountainsEdge(WorldGen wg) {
+	public DynamicMountains(WorldGen wg) {
 		super(wg, BIOME, Plate.MOUNTAINS, new MountainsSurfaceBuilder(), 5);
 		addColumnFeatures();
 		INSTANCE = this;
@@ -23,13 +24,14 @@ public class MountainsEdge extends SurfacedBiome {
 
 	public static final JNoise noise1 = JNoise.newBuilder().octavated().setNoise(base).setLacunarity(3).setPersistence(0.5).setOctaves(4).build();
 
-	public static MountainsEdge getInstance() {
+	public static DynamicMountains getInstance() {
 		return INSTANCE;
 	}
 
 	@Override
 	public int getHeight(int x, int z, int biomeId) {
-		return (int) (80+(getPlateNoise(x,z, 6)) + noise1.getNoise(x, z)*20);
+		final int height = Layer.getBiomeData(biomeId);
+		return (int) (height+(getPlateNoise(x,z, 0)) + noise1.getNoise(x, z)*32);
 	}
 
 }
