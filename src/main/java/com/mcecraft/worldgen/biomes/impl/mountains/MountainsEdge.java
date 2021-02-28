@@ -30,7 +30,7 @@ public class MountainsEdge extends MountainBiome {
 
 	@Override
 	public int getHeight(int x, int z, int biomeId) {
-		return (int) (85+(getPlateNoise(x,z, 6)) + noise1.getNoise(x, z)*20);
+		return (int) (80+(getPlateNoise(x,z, 6)) + noise1.getNoise(x, z)*20);
 	}
 
 }

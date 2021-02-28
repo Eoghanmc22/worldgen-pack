@@ -33,14 +33,16 @@ public class GenConfig implements WorldGenConfig {
 		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new LakeLayer(i++, 32));
-		wg.addLayer(new ZoomLayer(i++));
-		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new MountainsEdgeLayer(i++));
 		wg.addLayer(new MountainsOuterLayer(i++));
 		wg.addLayer(new MountainsInnerLayer(i++));
 		wg.addLayer(new MountainsTallLayer(i++));
+		wg.addLayer(new MountainsVeryTallLayer(i++, 6));
+		wg.addLayer(new ZoomLayer(i++));
+		wg.addLayer(new LakeLayer(i++, 32));
 		wg.addLayer(new ShelfLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
+		wg.addLayer(new MountainsPeakLayer(i++, 4));
 		wg.addLayer(new BeachLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
 		wg.addLayer(new ZoomLayer(i++));
@@ -78,8 +80,10 @@ public class GenConfig implements WorldGenConfig {
 		wg.addReservedBiome(new MountainGravelValleys(wg));
 		wg.addReservedBiome(new MountainsEdge(wg));
 		wg.addReservedBiome(new TallMountains(wg));
-		wg.addReservedBiome(new SmallMountains(wg));
+		wg.addReservedBiome(new OuterMountains(wg));
 		wg.addReservedBiome(new MountainsSteep(wg));
+		wg.addReservedBiome(new PeakMountains(wg));
+		wg.addReservedBiome(new VeryTallMountains(wg));
 	}
 
 }

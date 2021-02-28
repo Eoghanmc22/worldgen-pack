@@ -25,7 +25,7 @@ public class MountainsOuterLayer extends MultiSamplingLayer {
             if (Layer.cmpBiomeClimate(u, climate, biome) && Layer.cmpBiomeClimate(d, climate, biome) && Layer.cmpBiomeClimate(l, climate, biome) && Layer.cmpBiomeClimate(r, climate, biome)) {
                 return c;
             }
-            return Layer.setIsLand(0, true) | Layer.setClimate(0, SmallMountains.getInstance().getClimateId()) | Layer.setBiomeId(0, SmallMountains.getInstance().getBiomeId());
+            return Layer.setIsLand(0, true) | Layer.setClimate(0, OuterMountains.getInstance().getClimateId()) | Layer.setBiomeId(0, OuterMountains.getInstance().getBiomeId());
         }
         return c;
     }

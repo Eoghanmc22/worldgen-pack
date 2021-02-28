@@ -21,8 +21,9 @@ repositories {
 dependencies {
     implementation 'com.github.Minestom:Minestom:8a992b3e45'
     //implementation 'net.minestom.server:Minestom:1.0'
-    implementation 'com.github.Eoghanmc22:wip-treegen:1b55fff4a6'
-    implementation 'com.github.Eoghanmc22:lib-worldgen:a2230d3942'
+    //implementation 'com.github.Eoghanmc22:wip-treegen:1b55fff4a6'
+    //implementation 'com.github.Eoghanmc22:lib-worldgen:a2230d3942'
+    implementation 'net.minestom:lib-worldgen:1.0-SNAPSHOT'
     implementation 'com.github.Eoghanmc22:worldgen-commons:3403abb36a'
     implementation 'de.articdive:jnoise:2.0.0'
 }
