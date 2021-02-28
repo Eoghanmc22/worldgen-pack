@@ -19,14 +19,14 @@ public class MountainsSurfaceBuilder implements SurfaceBuilder {
 		int realX = chunkX*16 + x;
 		int realZ = chunkZ*16 + z;
 
-		double snowChance = height/120.0;
+		double snowChance = (height/90.0)-1;
 		int snowLayers = (int) (snowChance*8);
 
-		double grassChance = (height/-90.0)+1;
+		double grassChance = (height/-20.0)+5;
 
 		double gravelSample = (noise1.getNoise(realX, realZ)+1)/2.0;
 
-		double iceChance = height/300.0;
+		double iceChance = (height/110.0)-1;
 		double iceSample = (noise2.getNoise(realX, realZ)+1)/2.0;
 
 		if (rng.nextFloat() < grassChance) {
@@ -57,10 +57,10 @@ public class MountainsSurfaceBuilder implements SurfaceBuilder {
 		}
 		int realSnowLayersCount = realSnowLayers;
 		for (int i = 0; i < realSnowLayers / 8 + 1; i++) {
-			if (realSnowLayersCount < 0) {
+			if (realSnowLayersCount <= 0) {
 				break;
 			}
-			int layers = Math.max(Math.min(realSnowLayersCount, 8), 1);
+			int layers = Math.min(realSnowLayersCount, 8);
 			batch.setBlockStateId(x,height+i+1,z, Block.SNOW.withProperties("layers=" + layers));
 			realSnowLayersCount -= layers;
 		}

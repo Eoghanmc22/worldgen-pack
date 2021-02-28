@@ -54,11 +54,14 @@ public class Minestom {
 		minecraftServer.start("localhost", 25566);
 
 		System.out.println(System.currentTimeMillis());
-		int width = 20;
+		int width = 200;
 		CountDownLatch latch = new CountDownLatch(width*width*4);
 		for (int x = -width; x < width; x++) {
 			for (int y = -width; y < width; y++) {
-				instanceContainer.loadChunk(x,y, (c) -> latch.countDown());
+				instanceContainer.loadChunk(x,y, (c) -> {
+					latch.countDown();
+					instanceContainer.unloadChunk(c);
+				});
 			}
 		}
 		try {
